@@ -8,16 +8,18 @@ namespace HordeProtocol.Gameplay
         public int movementSpeed;
         public GameObject playerRotator;
 
+        MoveCommand moveCommand;
         Horde inputActions;
-        Rigidbody2D rigidbody2;
+        Rigidbody2D rigidbody2D;
         Vector2 movementVector;
         Camera camera;
         Vector3 mouseVector;
 
         private void Awake()
         {
-            rigidbody2 = GetComponent<Rigidbody2D>();
+            rigidbody2D = GetComponent<Rigidbody2D>();
             inputActions = new Horde();
+            moveCommand = new MoveCommand();
         }
         private void Start()
         {
@@ -44,7 +46,7 @@ namespace HordeProtocol.Gameplay
         }
         private void Movement()
         {
-            rigidbody2.linearVelocity = movementVector.normalized * movementSpeed;
+            moveCommand.Move(rigidbody2D, movementVector, movementSpeed);
         }
         private void LookAtMouse()
         {

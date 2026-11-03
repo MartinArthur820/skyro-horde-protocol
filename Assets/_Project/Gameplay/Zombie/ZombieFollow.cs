@@ -11,8 +11,9 @@ namespace HordeProtocol.Gameplay
         public float movementSpeed;
         public Transform target;
 
-        public event Action enemyKilled;       
 
+
+        public static event Action enemyKilled;
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -25,7 +26,7 @@ namespace HordeProtocol.Gameplay
 
         private void OnDisable()
         {
-            enemyKilled.Invoke();
+            enemyKilled?.Invoke();
 
         }
 

@@ -7,17 +7,18 @@ namespace HordeProtocol.Gameplay
     public class PlayerShooting : MonoBehaviour
     {
         Horde inputActions;
+        FireCommand fireCommand;
         bool isFiring;
         bool cooldown;
 
         public float firingSpeed;
         public float bulletCount;
-        public float bulletSpread;
 
         public GameObject bulletPrefab;
         private void Awake()
         {
             inputActions = new Horde();
+            fireCommand = new FireCommand();
         }
         private void OnEnable()
         {
@@ -30,19 +31,14 @@ namespace HordeProtocol.Gameplay
         private void Update()
         {
             isFiring = (inputActions.Player.Fire.ReadValue<float>() >= 1);
-            Debug.Log(isFiring);
-            StartCoroutine(Fire());
+            Shoot();
         }
-        private IEnumerator Fire()
+        private IEnumerator Shoot()
         {
             if (isFiring && !cooldown)
             {
-                //float spread = Random.Range(transform.rotation.z + bulletSpread, transform.rotation.z - bulletSpread);
                 cooldown = true;
-                for (int i = 0; i < bulletCount; i++)
-                {
-                    GameObject shotPrefab = Instantiate(bulletPrefab, transform.position, transform.rotation);
-                }
+                fireCommand.Fire(transform);
                 yield return new WaitForSeconds(firingSpeed);
                 cooldown = false;
             }
