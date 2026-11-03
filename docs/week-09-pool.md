@@ -1,0 +1,3 @@
+1. Pri zasiahnuti nepriatela strelou je gameobjekt Disabled a je pridany do EnemyPool queue. Nesmie byt GameObject.Destroy() prepac palo :sob:.
+2. Najlepsie nech sa instantiatnu na zaciatku sceny + s loading screenom aby lagspike bol akotak skryty. Mal by pockat na volny kus (toto treba dorobit so scalovanim na zaciatku loadingu, i. e. hrac ma vacsi firerate == potrebuje viacej bullet objektov)
+3. Treba aby mal resetnute staty ohladom HP a ked budu tak aj resetnute status efekty, states atd.
