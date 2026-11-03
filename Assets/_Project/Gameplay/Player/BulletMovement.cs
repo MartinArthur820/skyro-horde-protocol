@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,6 +27,10 @@ namespace HordeProtocol.Gameplay
         void FixedUpdate()
         {
             rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
+        }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            collision.gameObject.SetActive(false);
         }
     }
 }
