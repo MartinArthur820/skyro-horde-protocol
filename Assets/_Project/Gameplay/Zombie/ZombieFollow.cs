@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace HordeProtocol.Gameplay
 {
@@ -11,14 +11,23 @@ namespace HordeProtocol.Gameplay
         public float movementSpeed;
         public Transform target;
 
+        public event Action enemyKilled;       
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
         }
         void FixedUpdate()
         { 
-            direction = (target.position - transform.position).normalized;
+            direction = (target.transform.position - transform.position).normalized;
             rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * movementSpeed;
         }
+
+        private void OnDisable()
+        {
+            enemyKilled.Invoke();
+
+        }
+
     }
 }
