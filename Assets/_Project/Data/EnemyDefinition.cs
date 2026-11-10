@@ -8,5 +8,6 @@ namespace HordeProtocol.Data
         public string enemyName;
         public int health;
         public int speed;
+        public GameObject enemyPrefab;
     }
 }

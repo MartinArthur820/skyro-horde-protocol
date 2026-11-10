@@ -119,32 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
-
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196799062
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +287,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &373953294
+--- !u!1 &444297797
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -321,24 +295,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 373953295}
+  - component: {fileID: 444297799}
+  - component: {fileID: 444297798}
   m_Layer: 0
-  m_Name: PlayerSpawn
+  m_Name: GameState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &373953295
+--- !u!114 &444297798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444297797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbec73e447c3f94098ed11e2c03bd97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.RunState
+--- !u!4 &444297799
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373953294}
+  m_GameObject: {fileID: 444297797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22061, y: -0.34319, z: 0}
+  m_LocalPosition: {x: -0.22961, y: 0.53225, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -657,7 +644,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d835a9fe1bb70d94e92d3a6760ed54ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.GameManager
+  scoreMultiplier: 0
   textScore: {fileID: 1424480452}
+  timeForScore: 5
+  timeSinceScore: 0
 --- !u!1 &1424480450
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +935,53 @@ MonoBehaviour:
   timeToSpawn: 1
   player: {fileID: 901296116}
   enemyPool: {fileID: 741165095}
+--- !u!1 &1502286447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502286449}
+  - component: {fileID: 1502286448}
+  m_Layer: 0
+  m_Name: EnemySpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1502286448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502286447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69fe669f611136b40bda331e1196ef56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.ZombieSpawner
+  timeToSpawn: 1
+  player: {fileID: 901296116}
+  enemyPool: {fileID: 741165095}
+--- !u!4 &1502286449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502286447}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.57, y: 2.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1786727417
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +993,7 @@ GameObject:
   - component: {fileID: 1786727419}
   - component: {fileID: 1786727418}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,6 +1073,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1839821676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1487818016744311801, guid: 5c0a0fab455cae544888f3cc63850ee3, type: 3}
+  m_PrefabInstance: {fileID: 1488887651313521763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1839821681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839821676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd962e9fe11a87c4785397cc049318ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HordeProtocol.Gameplay::HordeProtocol.Gameplay.PlayerHealth
+  health: 3
 --- !u!1001 &1488887651313521763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1044,6 +1099,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1487818016744311801, guid: 5c0a0fab455cae544888f3cc63850ee3, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 1487818016744311801, guid: 5c0a0fab455cae544888f3cc63850ee3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1135,15 +1194,23 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1487818016744311801, guid: 5c0a0fab455cae544888f3cc63850ee3, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1839821681}
   m_SourcePrefab: {fileID: 100100000, guid: 5c0a0fab455cae544888f3cc63850ee3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1488887651313521763}
-  - {fileID: 373953295}
   - {fileID: 1786727419}
   - {fileID: 373814336}
   - {fileID: 196799065}
-
+  - {fileID: 741165096}
+  - {fileID: 1081973277}
+  - {fileID: 1146764018}
+  - {fileID: 1438893509}
+  - {fileID: 1453178617}
+  - {fileID: 1502286449}
+  - {fileID: 444297799}

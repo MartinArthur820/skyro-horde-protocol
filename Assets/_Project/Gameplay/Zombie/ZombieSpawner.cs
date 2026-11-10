@@ -16,12 +16,16 @@ namespace HordeProtocol.Gameplay
             if (timeSinceSpawn >= timeToSpawn)
             {
                 GameObject newEnemy = enemyPool.GetEnemy();
-                newEnemy.transform.position = transform.position;
-                ZombieFollow zombieFollow = newEnemy.GetComponent<ZombieFollow>();
-                ZombieReturn zombieReturn = newEnemy.GetComponent<ZombieReturn>();
-                zombieFollow.target = player;
-                zombieReturn.enemyPool = this.enemyPool;
-                timeSinceSpawn = 0;
+                if (newEnemy != null )
+                {
+                    newEnemy.transform.position = transform.position;
+                    ZombieFollow zombieFollow = newEnemy.GetComponent<ZombieFollow>();
+                    ZombieReturn zombieReturn = newEnemy.GetComponent<ZombieReturn>();
+                    zombieFollow.target = player;
+                    zombieReturn.enemyPool = this.enemyPool;
+                    timeSinceSpawn = 0;
+                }
+
 
             }
         }
